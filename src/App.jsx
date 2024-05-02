@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 
 function App() {
+  //useState hook
   const [len, setLenght] = useState(8);
   const [numAllowed, setNumAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
@@ -8,7 +9,7 @@ function App() {
   //ref hook
   const passwordRef = useRef(null);
 
-
+  //useCallback hook
   const passwordGenerator = useCallback(() => {
     let pass = ""
     let str = 
@@ -36,6 +37,8 @@ function App() {
     window.navigator.clipboard.writeText(Password)
   }, [Password])
 
+   
+  //useEffect hook
   useEffect(()=>{
       passwordGenerator()
   }, [len, numAllowed, charAllowed, passwordGenerator])
